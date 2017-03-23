@@ -13,11 +13,10 @@ module.exports = function(sequelize, DataTypes) {
       classMethods: {
         associate: function(models) {
           // An Author (foreignKey) is required or a Post can't be made
-          User.belongsToMany(Activity, {though: "UserActivity"});
-          User.belongsToMany(User, {as: "Friends", through: "UserFriends"});
+          User.belongsToMany(models.Activity, {through: "UserActivity"});
+          User.belongsToMany(models.User, {as: "Friends", through: "UserFriends"});
         }
       }
-    }
   });
   return User;
 };

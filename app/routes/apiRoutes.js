@@ -15,7 +15,7 @@ module.exports = function(app) {
   // GET route for getting all of the todos
   app.get("/api/activity", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.Active.findAll({}).then(function(activity) {
+    db.Activity.findAll({}).then(function(activity) {
       // We have access to the todos as an argument inside of the callback function
       res.json(activity);
     });
@@ -26,7 +26,7 @@ module.exports = function(app) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property
-    db.Todo.create({
+    db.Activity.create({
       type: req.body.type,
       location: req.body.location
     }).then(function(activity) {
@@ -39,7 +39,7 @@ module.exports = function(app) {
   // req.params.id
   app.delete("/api/activity/:id", function(req, res) {
     // We just have to specify which todo we want to destroy with "where"
-    db.Todo.destroy({
+    db.Activity.destroy({
       where: {
         id: req.params.id
       }
@@ -53,7 +53,7 @@ module.exports = function(app) {
   app.put("/api/activity", function(req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    db.Todo.update({
+    db.Activity.update({
       type: req.body.type,
       location: req.body.location
     }, {
