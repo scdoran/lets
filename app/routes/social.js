@@ -46,10 +46,7 @@ module.exports = function(app) {
           res.json(user);
         });
       }
-        
-     
-      // console.log(user);
-    });
+  });
   
 
 // =============================================================
