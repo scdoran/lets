@@ -34,6 +34,7 @@ module.exports = function(app) {
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip,
+      status: req.body.status,
       availability: req.body.availability
       // photo: 
     }).then(function(user) {
@@ -52,11 +53,12 @@ module.exports = function(app) {
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip,
+      status: req.body.status,
       availability: req.body.availability
       // photo: 
     }, {
       where: {
-        UserId: req.body.id
+        id: req.body.id
       }
     }).then(function(user) {
       res.json(user);
