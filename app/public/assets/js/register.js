@@ -38,7 +38,6 @@ $('#myForm').validator().on('submit', function (e) {
           email: $("#email").val().trim(),
           password: $("#password").val().trim(),
           phone: $("#phone").val().trim(),
-          photo: $("#photo").val().trim(),
           city: $("#city").val().trim(),
           state: $("#state").val().trim(),
           interests: allInterests
@@ -55,6 +54,9 @@ $('#myForm').validator().on('submit', function (e) {
         });
         $.post("/api/useractivities", {UserId: user.id, ActivityIds: allInterests}, function(dbSocial){
           console.log(dbSocial);
+        });
+        $.post("/newUpload/image", user.id, function(dbPhoto){
+          console.log(dbPhoto);
         });
       });
 
