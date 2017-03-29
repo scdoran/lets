@@ -11,7 +11,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="assets/css/profile.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -19,12 +19,12 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-<body>
+<body class="profilebody">
 <!-- Navigation Bar -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#"><img class="logo" src="assets/images/new-lets-logo.png">
+            <a href="index.html"><img class="logo" src="assets/images/new-lets-logo.png">
             </a>
            
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -38,27 +38,22 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="">Log Out</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Log Out</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container">
     <div class="col-md-12">
-     <div class="jumbotron">
+     <div class="jumbotron" id="selfprofileBox">
      <!-- This set's the Jumbotrons header. -->
         <div class="page-header">
           <h1 class="profileheader">My Profile <small class="username">Username</small></h1>
         </div>
-
-         <button type="button" class="btn btn-default" id="settings" aria-label="Left Align">
-           <span class="glyphicon glyphicon-cog" aria-hidden="true"> Profile Settings </span>
-         </button>
-
       
     <!-- Status, Interest, Location. -->
-      <img src="assets/images/profile-pictures.png" class="profileimg"></img>
+      <img src="assets/images/profile-icon.png" class="profileimg"></img>
       <h2>Status:</h2>
       <p>Avaliable!</p>
       <h2>Interests:</h2>

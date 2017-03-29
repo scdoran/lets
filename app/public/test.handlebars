@@ -37,7 +37,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="view.html">Home</a></li>
                 <li><a href="view.html">Find</a></li>
-                <li><a href="profile.html">Profile</a></li>
+                <li><a href="#portfolio">Profile</a></li>
                 <li><a href="#">Friends</a></li>
                 <li><a href="#">Logout</a></li>
             </ul>
@@ -95,58 +95,22 @@
                     </div>
             </div>
         </div>
+        {{#each quotes}}
         <div class="col-md-6 col-xs-12">
             <div class="item">
-                <img class="avatar" src="http://placehold.it/100x100">
-                <h3>Connor</h3>
-                    <p class="status">Looking to play basketball.</p>
-                    <button type="button" class="btn btn-primary view">View Profile</button>
-                    <div class="socialLinks">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span>
-                    </div>
+                <img class ="avatar" src="{{this.avatar}}">
+                <h3>{{this.name}}</h3>
+                <p class="status">{{this.status}}</p>
+                <button type="button" class="btn btn-primary view">View Profile</button>
+                <div class="socialLinks">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <a href="{{this.phone}}"><span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span></a>
+                </div>
             </div>
         </div>
-         <div class="col-md-6 col-xs-12">
-            <div class="item">
-                <img class="avatar" src="http://placehold.it/100x100">
-                <h3>Patrick</h3>
-                    <p class="status">Looking to play basketball.</p>
-                    <button type="button" class="btn btn-primary view">View Profile</button>
-                    <div class="socialLinks">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star favorited" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span>
-                    </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-            <div class="item">
-                <img class = "avatar" src="http://placehold.it/100x100">
-                <h3>Sarah</h3>
-                    <p class="status">Looking to play basketball.</p>
-                    <button type="button" class="btn btn-primary view">View Profile</button>
-                    <div class="socialLinks">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span>
-                    </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-            <div class="item">
-                <img class = "avatar" src="http://placehold.it/100x100">
-                <h3>Rayal</h3>
-                    <p class="status">Looking to play basketball.</p>
-                    <button type="button" class="btn btn-primary view">View Profile</button>
-                    <div class="socialLinks">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star favorited" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span>
-                    </div>
-            </div>
-        </div>
+        {{/each}}
+        
     </div>
                         <a href="#top"><button type="button" class="btn btn-default">Back to Top</button></a>
 
@@ -166,6 +130,5 @@
         <!-- Bootstrap JavaScript -->
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="view.js"></script>
-
 </body>
 </html>
