@@ -31,6 +31,7 @@ module.exports = function(app) {
     db.User.create({
       name: req.body.name,
       email: req.body.email,
+      phone: req.body.phone,
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip,
@@ -44,12 +45,13 @@ module.exports = function(app) {
   });
 
   // PUT route for updating user information. We can get the updated user data from req.body
-  app.put("/api/user", function(req, res) {
+  app.put("/profile/:UserId", function(req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     db.User.update({
       name: req.body.name,
       email: req.body.email,
+      phone: req.body.phone,
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip,
@@ -58,7 +60,7 @@ module.exports = function(app) {
       // photo: 
     }, {
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(function(user) {
       res.json(user);

@@ -1,16 +1,19 @@
  /******************HOME PAGE, VIEW PAGE CSS************/
- * {
-         box-sizing: border-box;
- }
- 
  body {
-            background-image: url("crowd.jpg");
+            background-image: url("http://i.imgur.com/9qarRf4.jpg");
             background-size: cover;
             background-repeat: no-repeat;
         }
 
 .navbar-default {
             min-height: 100px;
+}
+
+ul {
+    position: relative;
+    top: 25px;
+    right: 20px;
+    font-size: 20px;
 }
 .content {
             margin-bottom: 10em;
@@ -22,6 +25,44 @@ h3 {
 img.logo {
             max-width: 125px;
 }
+#customLogin {
+    color: teal;
+    background-color: white;
+    border: 1px solid grey;
+    margin: 2px;
+}
+#customLogin:hover {
+    background:#333;
+    color: white;
+}
+#nevermind {
+    background-color: red;
+    color: white;
+    border: 1px solid grey;
+}
+#nevermind:hover {
+    background-color: white;
+    color: red;
+}
+#facebook {
+    margin: 2px;
+    color: white;
+    background-color: #3b5998;
+}
+#facebook:hover {
+    background-color: white;
+    color: #3b5998;
+}
+#modalBtn {
+    width: 100%;
+    height: 100%;
+}
+#regBtn {
+    width: 100%;
+    height: 100%;
+    float: right;
+}
+
 .homeContent {
             background-color: white;
             border-radius: 10px;
@@ -34,12 +75,6 @@ img.logo {
             border: 2px solid #2196F3;
             color: #333;
 }
-
-.btn-primary.disabled {
-        color: white;
-        background-color: grey;
-}
-
 .welcome{
             font-size: 5em;
             color: white;
@@ -83,11 +118,7 @@ span.glyphicon-ok {
             color:green;
 }
 span.glyphicon-star {
-            color:lightgrey;
-}
-
-span.glyphicon-star.favorited {
-        color: orange;
+            color: orange;
 }
 
 .filterButtons {
@@ -111,7 +142,6 @@ img.avatar {
             max-height: 100px;
             border-radius: 50%;
 }
-
     
 /* The switch - the box around the slider */
  .switch {
@@ -197,21 +227,6 @@ input{
           border-radius: 7px;
           box-shadow: 5px 5px 4px #333;
 }
-#photo {
-        color: white;
-}
-
-/*Error validation messages*/
-.list-unstyled li {
-        background-color: black;
-        color:white;
-}
-.formArea{
-        background-color:rgba(0,0,0, 0.6);
-        border-radius: 10px;
-        padding-top: 10px;
-        margin-top: 20px;
-}
 
 @media only screen and (max-width: 600px) {
     body {
@@ -219,3 +234,5 @@ input{
         background-image: none;
     }
 }
+
+

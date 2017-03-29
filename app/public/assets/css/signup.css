@@ -1,0 +1,71 @@
+/* CSS Code for Sign Up page. */
+body {
+	background-image: url("http://natbg.com/wp-content/uploads/2016/09/oceans-romantic-evening-candles-dinner-holiday-ocean-restaurant-evenig-table-background-pictures.jpg");
+}
+
+
+
+h1 {
+	position: relative;
+	left: 195px;
+}
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+/* Shared */
+button {
+  box-sizing: border-box;
+  position: relative;
+  /* width: 13em;  - apply for fixed size */
+  padding:  5px 5px;
+  border: none;
+  text-align: left;
+  line-height: 34px;
+  white-space: nowrap;
+  font-size: 16px;
+  color: #FFF;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    background-color: #f44336;
+}
+
+.signupbtn {
+	background-color: teal;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,.signupbtn {
+    width: 20%;
+    margin: 10px;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 40px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+        width: 100%;
+    }
+}

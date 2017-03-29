@@ -3,6 +3,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var path = require("path");
 
 // Sets up the Express App
 // =============================================================
@@ -17,6 +18,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(express.static(path.join(__dirname, '/app/public')));
+
 
 // Static directory
 app.use(express.static("./public"));
@@ -28,6 +31,7 @@ require("./app/routes/activities.js")(app);
 require("./app/routes/friends.js")(app);
 require("./app/routes/user.js")(app);
 require("./app/routes/social.js")(app);
+
 
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync({ force: false }).then(function() {

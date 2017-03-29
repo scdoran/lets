@@ -1,14 +1,17 @@
+<!-- View(view active users in your area) page HTML Code. -->
+<!-- Created for the let's application, by Connor H, Nathan C, Patrick M, Sarah D, and Rayal B. -->
+
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>View People in Your Area</title>
+        <title>Title Page</title>
 
         <!-- Bootstrap CSS -->
         <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="style.css" rel="stylesheet">
+        <link href="assets/css/style.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,11 +20,13 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
-<body style="background-image: none; background-color: white;">
+<!-- Prevents background image from being added to this page. -->
+<body style="background-image: none">
+<!-- Navigation Bar -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#"><img class="logo" src="new-lets-logo.png" alt="lets social app">
+            <a href="#"><img class="logo" src="assets/images/new-lets-logo.png">
             </a>
            
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -35,8 +40,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="view.html">Home</a></li>
-                <li><a href="view.html">Find</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">Find</a></li>
                 <li><a href="#portfolio">Profile</a></li>
                 <li><a href="#">Friends</a></li>
                 <li><a href="#">Logout</a></li>
@@ -44,6 +49,7 @@
         </div>
     </div>
 </nav>
+<!-- Contains all content in view page. -->
 <div class="container content">
     <div class="row">
         <div class="col-s-2">
@@ -53,6 +59,7 @@
                 Filter <span class="caret"></span>
             </button>
                 <ul class="dropdown-menu">
+                <!-- Displays friends list. -->
                     <li><a href="#">Your Friends</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="#">Hiking</a></li>
@@ -66,6 +73,7 @@
                     <li><a href="#">Show All</a></li>
                 </ul>
             </div>
+            <!-- Button utilized to establish distance search. -->
             <div class="btn-group filterButtons">
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Distance <span class="caret"></span>
@@ -81,17 +89,18 @@
             </div>
         </div>
     </div>
+    <!-- Displays users to the page. -->
     <div class="row">
         <div class="col-md-6 col-xs-12">
             <div class="item">
-                <img class ="avatar" src="avatar.jpeg">
+                <img class ="avatar" src="assets/images/avatar.jpeg">
                 <h3>Nathan</h3>
                     <p class="status">Looking to play basketball.</p>
                     <button type="button" class="btn btn-primary view">View Profile</button>
                     <div class="socialLinks">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <a href="tel:+1-330-569-4131"><span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span></a>
+                            <span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span>
                     </div>
             </div>
         </div>
@@ -116,7 +125,7 @@
                     <button type="button" class="btn btn-primary view">View Profile</button>
                     <div class="socialLinks">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star favorited" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                             <span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span>
                     </div>
             </div>
@@ -142,7 +151,7 @@
                     <button type="button" class="btn btn-primary view">View Profile</button>
                     <div class="socialLinks">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star favorited" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
                             <span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span>
                     </div>
             </div>
@@ -151,6 +160,7 @@
                         <a href="#top"><button type="button" class="btn btn-default">Back to Top</button></a>
 
 </div>
+<!-- Uer avaliability setting. -->
 <footer id = "footer" class="footer navbar-fixed-bottom">
       <div class="container">
           <h2 id="available">Available:</h2>
@@ -162,12 +172,7 @@
       </div>
 </footer>
         <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script>
-            $("span.glyphicon-star").on("click", function() {
-                $(this).toggleClass("favorited");
-            });
-        </script>        
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>        
         <!-- Bootstrap JavaScript -->
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
