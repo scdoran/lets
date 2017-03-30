@@ -3,13 +3,13 @@
 <head>
  <title>Sign Up for Let's - the app that let's you find those around you.</title>
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="#"><img class="logo" src="new-lets-logo.png">
+            <a href="index.html"><img class="logo" src="assets/images/new-lets-logo.png">
             </a>
            
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="index.html">Login</a></li>
             </ul>
         </div>
     </div>
@@ -32,7 +32,7 @@
 
 <div class="container">
   <div class="row header">
-    <img id ="topImage" src="final-logo.jpeg">
+    <img id ="topImage" src="assets/images/final-logo.jpeg">
   </div>
   <div class="row">
     <div class="col-md-3"></div>
@@ -52,6 +52,11 @@
           <label for="confirmPassword">Confirm Password <span>*</span></label>
           <input id="confirmPassword" name="confirmPassword" type="password" placeholder="" data-match="#password" class="form-control input-md" required="" data-error="Sorry, your passwords do not match.">
             <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+          <label for="name">Full Name: <span>*</span></label>
+          <input id="name" name="name" type="text" placeholder="Full Name" class="form-control input-md" required="" data-error="Please enter your full name.">
+          <div class="help-block with-errors"></div>
         </div>
         <div class="form-group">
           <label for="phone">Phone Number <span>*</span></label>
@@ -172,6 +177,6 @@
 <!--FORM VALIDATION-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.js"></script>
 
-<script src="register.js"></script>
+<script src="assets/js/register.js"></script>
 </body>
 </html>

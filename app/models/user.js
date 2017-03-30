@@ -5,7 +5,6 @@ module.exports = function(sequelize, DataTypes) {
     phone: DataTypes.STRING,
     city: DataTypes.STRING,
     state: DataTypes.STRING,
-    zip: DataTypes.STRING,
     status: DataTypes.STRING,
     availability: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true},
     photo: DataTypes.BLOB

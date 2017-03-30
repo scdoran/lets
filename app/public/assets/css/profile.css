@@ -1,0 +1,25 @@
+  /* CSS Code for profile page. */
+
+body {
+            background-image: url("http://i.imgur.com/9qarRf4.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+.navbar-default {
+  min-height: 100px;
+}
+       
+img.logo {
+  max-width: 125px;
+}
+
+.profileimg {
+  float: right;
+}
+
+#settings {
+  position: relative;
+  top: -150px;
+  left: 850px;
+}

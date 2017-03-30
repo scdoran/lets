@@ -4,13 +4,19 @@
  }
  
  body {
-            background-image: url("/crowd.jpg");
+            background-image: url("images/crowd.jpg");
             background-size: cover;
             background-repeat: no-repeat;
         }
 
 .navbar-default {
             min-height: 100px;
+}
+ul.nav {
+    position: relative;
+    top: 25px;
+    right: 20px;
+    font-size: 1.5em;
 }
 .content {
             margin-bottom: 10em;
@@ -36,10 +42,25 @@ img.logo {
 }
 
 .btn-primary.disabled {
-        color: white;
-        background-color: grey;
+        color: grey;
+        background-color: lightgray;
+        border: solid 1px black;
 }
 
+.btn-primary.disabled:hover {
+        color: grey;
+        background-color: lightgray;
+        border: solid 1px black;
+}
+.btn-primary:hover {
+        background-color: #333;
+}
+.registerBtn {
+        color: #333;
+}
+.registerBtn:hover {
+        color: white;
+}
 .welcome{
             font-size: 5em;
             color: white;
@@ -52,7 +73,6 @@ img.logo {
             opacity: 0.85;
             text-align: center;
             margin-bottom: 40px;
-            transp
 }
 .homeContent:hover {
             background:#333;
@@ -213,9 +233,65 @@ input{
         margin-top: 20px;
 }
 
-@media only screen and (max-width: 600px) {
+/*************** MODAL STYLE **************/
+#customLogin {
+  background-color: white;
+  color: teal;
+  border-color: grey;
+}
+
+#customLogin:hover {
+    background-color: #333;
+    color: white;
+}
+
+#nevermind {
+    color: red;
+}
+
+#nevermind:hover {
+    color: white;
+    background-color: red;
+}
+
+#mySecondModal {
+    width: 100%;
+    height: 500px;
+}
+
+.password {
+    color: #333;
+    float: left;
+}
+
+.email {
+    color: #333;
+    float: left;
+}
+
+#modalLogin {
+    background-color: white;
+    color: #333;
+    border-color: grey;
+}
+
+#modalLogin:hover {
+    background-color: #333;
+    color: white;
+}
+
+@media only screen and (max-width: 768px) {
     body {
         background-color: #333;
         background-image: none;
     }
+    ul.nav {
+    position: relative;
+    font-size: 1em;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /*margin-left: 5px;*/
 }
+}
+

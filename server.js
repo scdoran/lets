@@ -3,6 +3,11 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var path = require("path");
+var fs = require("fs");
+var handleBars = require("express-handlebars");
+
+var fileUploader = require("express-fileupload");
 
 // Sets up the Express App
 // =============================================================
@@ -17,9 +22,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(express.static(path.join(__dirname, '/app/public')));
+
 
 // Static directory
 app.use(express.static("./app/public"));
+app.use(fileUploader());
 
 // Routes =============================================================
 
@@ -28,9 +36,7 @@ require("./app/routes/activities.js")(app);
 require("./app/routes/friends.js")(app);
 require("./app/routes/user.js")(app);
 require("./app/routes/social.js")(app);
-// require("./app/routes/localsrc.js")(app);
-
-
+require("./app/routes/s3.js")(app);
 
 
 // Syncing our sequelize models and then starting our express app
