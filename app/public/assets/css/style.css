@@ -1,0 +1,297 @@
+ /******************HOME PAGE, VIEW PAGE CSS************/
+ * {
+         box-sizing: border-box;
+ }
+ 
+ body {
+            background-image: url("images/crowd.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+.navbar-default {
+            min-height: 100px;
+}
+ul.nav {
+    position: relative;
+    top: 25px;
+    right: 20px;
+    font-size: 1.5em;
+}
+.content {
+            margin-bottom: 10em;
+}
+h3 {
+            display: inline;
+            vertical-align: top;
+}
+img.logo {
+            max-width: 125px;
+}
+.homeContent {
+            background-color: white;
+            border-radius: 10px;
+            text-align: center;
+            margin-right: 20px;
+
+}
+.btn-primary {
+            background-color: white;
+            border: 2px solid #2196F3;
+            color: #333;
+}
+
+.btn-primary.disabled {
+        color: grey;
+        background-color: lightgray;
+        border: solid 1px black;
+}
+
+.btn-primary.disabled:hover {
+        color: grey;
+        background-color: lightgray;
+        border: solid 1px black;
+}
+.btn-primary:hover {
+        background-color: #333;
+}
+.registerBtn {
+        color: #333;
+}
+.registerBtn:hover {
+        color: white;
+}
+.welcome{
+            font-size: 5em;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 4px #333;
+}
+#intro {
+            color: white;
+            background-color: black;
+            opacity: 0.85;
+            text-align: center;
+            margin-bottom: 40px;
+}
+.homeContent:hover {
+            background:#333;
+            color: white;
+            box-shadow: inset 0 0 0 3px #3a7999;
+}
+.status {
+            display: inline;
+            position: absolute;
+            margin-left: 1em;
+            margin-top: .5em;
+            color:grey;
+}
+.item {
+            margin-bottom: 2em;
+            padding: 0;
+}
+.avatar:hover {
+            box-shadow: 5px 5px 5px #888888;
+            transition: .5s ease;
+}
+    
+span.glyphicon {
+            font-size: 1.5em;
+            margin-left: .5em;
+}
+span.glyphicon-ok {
+            color:green;
+}
+span.glyphicon-star {
+            color:lightgrey;
+}
+
+span.glyphicon-star.favorited {
+        color: orange;
+}
+
+.filterButtons {
+            margin-bottom: 1em;
+            margin-right: 1em;
+            padding-left: 1em;
+            float: left;
+}
+.socialLinks {
+            position: absolute;
+            bottom: 2em;
+            right: 1em;
+}
+.view {
+            position: absolute;
+            left: 9em;
+            bottom: 2em;
+}
+img.avatar {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 50%;
+}
+
+    
+/* The switch - the box around the slider */
+ .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+}
+
+/* Hide default HTML checkbox */
+ .switch input {display:none;}
+
+/* The slider */
+.slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+}
+
+.slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+}
+
+input:checked + .slider {
+        background-color: #2196F3;
+}
+
+input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+        border-radius: 34px;
+}
+
+.slider.round:before {
+        border-radius: 50%;
+}
+
+#footer {
+            background-color: white;
+}
+
+/****************SIGNUP PAGE CSS****************/
+label {
+          color: white;
+          text-shadow: 2px 2px 4px #333;
+}
+input{
+          margin-bottom: 10px;
+}
+.centered {
+          border-radius: 7px;
+}
+.header {
+          display: flex;
+          align-items: center;
+          justify-content: center
+}
+#topImage {
+          margin-top: 10px;
+          border-radius: 7px;
+          box-shadow: 5px 5px 4px #333;
+}
+#photo {
+        color: white;
+}
+
+/*Error validation messages*/
+.list-unstyled li {
+        background-color: black;
+        color:white;
+}
+.formArea{
+        background-color:rgba(0,0,0, 0.6);
+        border-radius: 10px;
+        padding-top: 10px;
+        margin-top: 20px;
+}
+
+/*************** MODAL STYLE **************/
+#customLogin {
+  background-color: white;
+  color: teal;
+  border-color: grey;
+}
+
+#customLogin:hover {
+    background-color: #333;
+    color: white;
+}
+
+#nevermind {
+    color: red;
+}
+
+#nevermind:hover {
+    color: white;
+    background-color: red;
+}
+
+#mySecondModal {
+    width: 100%;
+    height: 500px;
+}
+
+.password {
+    color: #333;
+    float: left;
+}
+
+.email {
+    color: #333;
+    float: left;
+}
+
+#modalLogin {
+    background-color: white;
+    color: #333;
+    border-color: grey;
+}
+
+#modalLogin:hover {
+    background-color: #333;
+    color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        background-color: #333;
+        background-image: none;
+    }
+    ul.nav {
+    position: relative;
+    font-size: 1em;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    /*margin-left: 5px;*/
+}
+}
+

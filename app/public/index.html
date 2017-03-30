@@ -1,0 +1,116 @@
+<!-- Home(Index) page HTML Code. -->
+<!-- Created for the let's application, by Connor H, Nathan C, Patrick M, Sarah D, and Rayal B. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Let's, the first</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <![endif]-->
+          </head>
+          <body>
+            <!-- Navigation Bar -->
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a href="index.html"><img class="logo" src="assets/images/new-lets-logo.png">
+                  </a>
+
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li data-toggle="modal" data-target="#myFirstModal"><a>Login</a></li>
+                    <li><a href="signup.html">Register</a></li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            <!-- Let's description. -->
+            <div class="container">
+              <div class="col-md-12">
+                <h1 class="welcome">Welcome to Let's</h1>
+                <p id="intro">Let's is the new hot social media app for meeting up with friends, family or even strangers near you for anything and everything!</p>
+              </div>
+              <!-- This content that follows contains the click events for logging in/registering. -->
+              <div class="row">
+               <div class="col-md-2"></div>
+               <div class="col-md-4 homeContent" data-toggle="modal" data-target="#myFirstModal">
+                 <h2>Login</h2>
+               </div>
+               <div class="col-md-4 homeContent">
+                 <a href="signup.html" class="registerBtn"><h2>Register</h2></a>
+               </div>
+               <div class="col-md-2"></div>
+             </div>
+             <!-- Modal -->
+             <div class="modal fade" id="myFirstModal" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal 1 content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Log In</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Log In to Let's.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button"  class="btn btn-defualt" id="customLogin" data-toggle="modal" data-target="#mySecondModal">Login to your Let's account</button>
+                    <button type="button" class="btn btn-default" id="nevermind" data-dismiss="modal">Nevermind</button>
+
+                  </div>
+                </div>
+                <!-- Modal -->
+             <div class="modal fade" id="mySecondModal" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal 2 content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Welcome back.</h4>
+                  </div>
+                  <div class="modal-footer">
+                    <form id="myForm">
+                      <div class="form-group">
+                        <label for="email" class="email">Email <span>*</span></label>
+                        <input id="email" name="email" type="email" placeholder="johndoe@gmail.com" class="form-control input-md" required="" data-error="Please enter a valid email address.">
+                        <div class="help-block with-errors"></div>
+                      </div>
+                      <div class="form-group">
+                        <label for="password" class="password">Password <span>*</span></label>
+                        <input id="password" name="password" type="password" placeholder="" class="form-control input-md" required="">
+                      </div>
+                     <button type="button"  class="btn btn-defualt" id="modalLogin" data-dismiss="modal">Login</button>
+                     <button type="button" class="btn btn-default" id="nevermind" data-dismiss="modal">Nevermind</button>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- jQuery -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>      
+                <!-- Bootstrap JavaScript -->
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <script src="assets/js/modal.js"></script>
+              </body>
+              </html>
