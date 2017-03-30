@@ -9,18 +9,33 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-	// GET route for getting all of the user
+	// GET route for getting all of the users
   app.get("/api/user", function(req, res) {
     // findAll returns all entries for a table when used with no options
     db.User.findAll({
-      where: {
-        UserId: req.body.user
-      }
+      // where: {
+      //   UserId: req.body.user
+        // or availabitity: true?
+      // }
     }).then(function(user) {
       // We have access to the user as an argument inside of the callback function
       res.json(user);
     });
   });
+
+  // GET route for getting all of the users within a certain mile radius
+  // app.get("/api/userDistance", function(req, res) {
+  //   // findAll returns all entries for a table when used with no options
+  //   db.User.findAll({
+  //     where: {
+  //       long: ,
+  //       lat: ,
+  //     }
+  //   }).then(function(user) {
+  //     // We have access to the user as an argument inside of the callback function
+  //     res.json(user);
+  //   });
+  // });
 
    // POST route for saving a new user
   app.post("/api/user", function(req, res) {
@@ -45,7 +60,7 @@ module.exports = function(app) {
   });
 
   // PUT route for updating user information. We can get the updated user data from req.body
-  app.put("/profile/:UserId", function(req, res) {
+  app.put("/api/:UserId", function(req, res) {
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
     db.User.update({
@@ -58,6 +73,23 @@ module.exports = function(app) {
       status: req.body.status,
       availability: req.body.availability
       // photo: 
+    }, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function(user) {
+      res.json(user);
+    });
+  });
+
+  // PUT route for updating user information. We can get the updated user data from req.body
+  app.put("/view", function(req, res) {
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    console.log("updating to " + req.body.availability);
+
+    db.User.update({
+      availability: req.body.availability
     }, {
       where: {
         id: req.params.id
