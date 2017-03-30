@@ -23,7 +23,7 @@ module.exports = function(app) {
   });
 
    // POST route for saving a new user
-  app.post("/api/user", function(req, res) {
+  app.post("/signup", function(req, res) {
   	console.log(req.body.name);
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
@@ -31,6 +31,7 @@ module.exports = function(app) {
     db.User.create({
       name: req.body.name,
       email: req.body.email,
+      phone: req.body.phone,
       city: req.body.city,
       state: req.body.state,
       zip: req.body.zip,
@@ -39,7 +40,7 @@ module.exports = function(app) {
       // photo: 
     }).then(function(user) {
       // We have access to the new user as an argument inside of the callback function
-      res.json(user);
+      res.redirect("/view");
     });
   });
 

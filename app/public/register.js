@@ -35,6 +35,7 @@ $('#myForm').validator().on('submit', function (e) {
       };
     
       var newUser = {
+          name: "Pemo",
           email: $("#email").val().trim(),
           password: $("#password").val().trim(),
           phone: $("#phone").val().trim(),
@@ -45,11 +46,6 @@ $('#myForm').validator().on('submit', function (e) {
       };
       console.log(newUser);
 
-    $.post("/api/user", newUser)
-      .done(function(data) {
-        console.log(data.user.id);
-        alert("Adding user...");
-      });
 
       var newSocial = {
         facebook: $("#facebook").val().trim(),

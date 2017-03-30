@@ -6,6 +6,15 @@
 // =============================================================
 var path = require("path");
 
+//Require login function to be used in routing
+function requireLogin (req, res, next) {
+  if (!req.user) {
+    res.redirect('/signup');
+  } else {
+    next();
+  }
+};
+
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -23,13 +32,18 @@ module.exports = function(app) {
   });
 
   // Route to the profile page
-  app.get("/profile", function(req, res) {
+  app.get("/profile", requireLogin, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/profile.html"));
   });
 
   // Route loads signup.html
   app.get("/signup", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/signup.html"));
+  });
+
+  // Route loads view.html
+  app.get("/view", requireLogin, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/view.html"));
   });
 
 };

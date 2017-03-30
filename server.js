@@ -19,7 +19,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
-app.use(express.static("./public"));
+app.use(express.static("./app/public"));
 
 // Routes =============================================================
 
@@ -28,6 +28,10 @@ require("./app/routes/activities.js")(app);
 require("./app/routes/friends.js")(app);
 require("./app/routes/user.js")(app);
 require("./app/routes/social.js")(app);
+// require("./app/routes/localsrc.js")(app);
+
+
+
 
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync({ force: false }).then(function() {
