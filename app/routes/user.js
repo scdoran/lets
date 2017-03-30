@@ -23,20 +23,6 @@ module.exports = function(app) {
     });
   });
 
-  // GET route for getting all of the users within a certain mile radius
-  // app.get("/api/userDistance", function(req, res) {
-  //   // findAll returns all entries for a table when used with no options
-  //   db.User.findAll({
-  //     where: {
-  //       long: ,
-  //       lat: ,
-  //     }
-  //   }).then(function(user) {
-  //     // We have access to the user as an argument inside of the callback function
-  //     res.json(user);
-  //   });
-  // });
-
    // POST route for saving a new user
   app.post("/api/user", function(req, res) {
   	console.log(req.body.name);
@@ -51,7 +37,9 @@ module.exports = function(app) {
       state: req.body.state,
       zip: req.body.zip,
       status: req.body.status,
-      availability: req.body.availability
+      availability: req.body.availability,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude
       // photo: 
     }).then(function(user) {
       // We have access to the new user as an argument inside of the callback function
@@ -71,7 +59,9 @@ module.exports = function(app) {
       state: req.body.state,
       zip: req.body.zip,
       status: req.body.status,
-      availability: req.body.availability
+      availability: req.body.availability,
+      latitude: req.body.latitude,
+      longitude: req.body.longitude
       // photo: 
     }, {
       where: {

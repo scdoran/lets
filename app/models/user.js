@@ -7,7 +7,11 @@ module.exports = function(sequelize, DataTypes) {
     state: DataTypes.STRING,
     status: DataTypes.STRING,
     availability: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true},
-    photo: DataTypes.BLOB
+    latitude: DataTypes.FLOAT,
+    longitude: DataTypes.FLOAT,
+    photo: DataTypes.STRING,
+    salt: DataTypes.STRING,
+    encryptedpw:DataTypes.STRING
   },
   {
       // We're saying that we want our Author to have Posts

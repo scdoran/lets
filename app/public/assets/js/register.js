@@ -15,6 +15,8 @@ function clear() {
     $("#instagram").val("");
 };
 
+
+
 // Validate and submit
 $('#myForm').validator().on('submit', function (e) {
   
@@ -34,7 +36,7 @@ $('#myForm').validator().on('submit', function (e) {
           });
 
        var newUser = {
-          name: "Bob",
+          name: $("#name").val().trim(),
           email: $("#email").val().trim(),
           password: $("#password").val().trim(),
           phone: $("#phone").val().trim(),
@@ -49,15 +51,28 @@ $('#myForm').validator().on('submit', function (e) {
       $.post("/api/user", newUser, function(user){
         console.log("Posted user!");
         console.log(user.id);
+        var fd = new FormData(document.getElementById("myForm"));
+           //fd.append("label", "WEBUPLOAD");
+        fd.append("UserId", user.id);
+        console.log(fd);
+           $.ajax({
+             url: "/newUpload/image",
+             type: "POST",
+             data: fd,
+             processData: false,  // tell jQuery not to process the data
+             contentType: false   // tell jQuery not to set contentType
+           }).done(function( data ) {
+               console.log( data );
+           });
         $.post("/api/usersocial", {UserId: user.id, links: newSocial}, function(dbSocial){
           console.log(dbSocial);
         });
         $.post("/api/useractivities", {UserId: user.id, ActivityIds: allInterests}, function(dbSocial){
           console.log(dbSocial);
         });
-        $.post("/newUpload/image", user.id, function(dbPhoto){
-          console.log(dbPhoto);
-        });
+        
+      }).then(function() {
+        console.log("done");
       });
 
       };
