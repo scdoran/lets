@@ -51,9 +51,9 @@ $('#myForm').validator().on('submit', function (e) {
           });
 
        var newUser = {
-          name: "Bob",
           email: $("#email").val().trim(),
           password: $("#password").val().trim(),
+          name: $("#name").val().trim(),
           phone: $("#phone").val().trim(),
           city: $("#city").val().trim(),
           state: $("#state").val().trim(),
