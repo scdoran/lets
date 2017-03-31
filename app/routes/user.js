@@ -71,6 +71,27 @@ module.exports = function(app) {
     });
   });
 
+  // // PUT route for updating user information. We can get the updated user data from req.body
+  // app.put("/view", function(req, res) {
+  //   // Update takes in an object describing the properties we want to update, and
+  //   // we use where to describe which objects we want to update
+  //   console.log("updating to " + req.body.availability);
+  //   console.log("longitude: " + req.body.longitude);
+  //   console.log("latitude: " + req.body.longitude);
+
+  //   db.User.update({
+  //     availability: req.body.availability,
+  //     longitude: req.body.longitude,
+  //     latitude: req.body.latitude
+  //   // }, {
+  //   //   where: {
+  //   //     id: req.params.id
+  //   //   }
+  //   }).then(function(user) {
+  //     res.json(user);
+  //   });
+  // });
+
   // PUT route for updating user information. We can get the updated user data from req.body
   app.put("/view", function(req, res) {
     var dataToSave = req.body;
