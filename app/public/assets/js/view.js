@@ -48,9 +48,21 @@ function updateAvailability() {
 
 // // Display results of those within 20 miles, sorted by distance
 // function displayResults() {
-//     // Logic for determining within 20 miles
-    
-// };
+    // Logic for determining within 20 miles
+    $("#friends").click(function(){
+      console.log("Friends!");
+      $.get("/api/friends/:UserId", function(friends){
+        console.log("Pulling friends");
+      });
+
+    });
+
+    // $("#all").click(function(){
+    //   $.get()
+    //   console.log("Everyone!");
+
+    // });
+// }
 
 // Add / remove friends
 function updateFriends() {

@@ -14,7 +14,7 @@ function requireLogin (req, res, next) {
     console.log(req.session.user.email);
     next();
   }
-};
+}
 
 // Routes
 // =============================================================
@@ -39,22 +39,35 @@ module.exports = function(app) {
 
     // Route to the view page
   app.get("/view", requireLogin, function(req, res) {
-    db.User.findAll({
-      where: {
-        availability: true
-      }
-    }).then(function(data){
-      res.render("view", {user: data});
-    });
+    
+    // function allUsers(){ 
+      db.User.findAll({
+        where: {
+          availability: true
+        }
+      }).then(function(data){
+        res.render("view", {user: data});
+      });
+    // }
     
     // function userActivity(filter){
+    //   db.User.getActivity({
+    //     where: {
+    //       ActivityId: filter
+    //     }
+    //   }).then(function(data){
+    //   res.render("view", {user: data});
+    //   });
+    // }
+
+    // function userDistance(filter){
     //   db.User.findAll({
-    //   where: {
-    //     availability: true
-    //   }
-    // }).then(function(data){
-    //   res.render("test", {user: data});
-    // });
+    //     where: {
+
+    //     }
+    //   }).then(function(data){
+    //   res.render("view", {user: data});
+    //   });
     // };
 
   });
@@ -76,4 +89,4 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
-};
+}
