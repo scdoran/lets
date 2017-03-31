@@ -9,12 +9,23 @@ var db = require("../models");
 
 function requireLogin (req, res, next) {
   if (!req.session.user) {
-    res.redirect('/');
+    res.redirect('/index');
   } else {
     console.log(req.session.user.email);
     next();
   }
 }
+
+function ifLoggedIn (req, res, next) {
+  console.log("ifLoggedIn fired");
+  if (req.session.user) {
+    console.log("ifLoggedIn found user");
+    res.redirect('/view');
+  } else {
+    console.log("ifLoggedIn did not find user");
+    next();
+  }
+};
 
 // Routes
 // =============================================================
@@ -22,14 +33,24 @@ module.exports = function(app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
+  app.get("/", ifLoggedIn, function(req, res){
+    console.log("homepage called");
+    res.redirect("/index");
+  }); 
+
    // index route loads index.html
-  app.get("/", function(req, res) {
+  app.get("/index", ifLoggedIn, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
   // login route loads login.html
   app.get("/login", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/login.html"));
+  });
+
+  app.get("/logout", function(req, res) {
+    req.session.reset();
+    res.redirect("/view");
   });
 
   // Route to the profile page
@@ -82,7 +103,6 @@ module.exports = function(app) {
       res.render("profile", {user: data});
     });
   });
-
 
   // Route loads signup.html
   app.get("/signup", function(req, res) {

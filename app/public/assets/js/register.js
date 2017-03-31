@@ -23,7 +23,7 @@ function clear() {
     $('#activities :checked').removeAttr('checked');
     $("#facebook").val("");
     $("#instagram").val("");
-};
+}
 
 // Validate and submit
 $('#myForm').validator().on('submit', function (e) {
@@ -53,36 +53,41 @@ $('#myForm').validator().on('submit', function (e) {
           status: "Hey, I'm available to hang out.",
           latitude: foundLatitude,
           longitude: foundLongitude
-        };
-        console.log(newUser)
+        }
+        console.log(newUser);
 
         var newSocial = $("#facebook").val().trim() + "," + $("#instagram").val().trim();
 
-      $.post("/api/user", newUser, function(user){
-        console.log("Posted user!");
-        console.log(user.id);
-        var fd = new FormData(document.getElementById("myForm"));
-           //fd.append("label", "WEBUPLOAD");
-        fd.append("UserId", user.id);
-        console.log(fd);
-           $.ajax({
-             url: "/newUpload/image",
-             type: "POST",
-             data: fd,
-             processData: false,  // tell jQuery not to process the data
-             contentType: false   // tell jQuery not to set contentType
-           }).done(function( data ) {
-               console.log( data );
-           });
-        $.post("/api/usersocial", {UserId: user.id, links: newSocial}, function(dbSocial){
-          console.log(dbSocial);
-        });
-        $.post("/api/useractivities", {UserId: user.id, ActivityId: allInterests}, function(dbSocial){
-          console.log(dbSocial);
-        });
+      $.post("/api/user", newUser, function(data){
+        if(data.valid){
+          console.log("Posted user!");
+          console.log(user.id);
+          var fd = new FormData(document.getElementById("myForm"));
+             //fd.append("label", "WEBUPLOAD");
+          fd.append("UserId", user.id);
+          console.log(fd);
+             $.ajax({
+               url: "/newUpload/image",
+               type: "POST",
+               data: fd,
+               processData: false,  // tell jQuery not to process the data
+               contentType: false   // tell jQuery not to set contentType
+             }).done(function( data ) {
+                 console.log( data );
+             });
+
+          $.post("/api/usersocial", {UserId: user.id, links: newSocial}, function(dbSocial){
+            console.log(dbSocial);
+          });
+          $.post("/api/useractivities", {UserId: user.id, ActivityId: allInterests}, function(dbSocial){
+            console.log(dbSocial);
+          });
+
+          window.location = "/view";
+        }
       }).then(function() {
         console.log("done");
       });
 
-      };
+  }
 });

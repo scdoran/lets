@@ -30,7 +30,7 @@ var sha512 = function(password, salt) {
 // =============================================================
 module.exports = function(app) {
 
-	 // GET route for getting all of the users
+   // GET route for getting all of the users
   app.post("/api/login", function(req, res) {
     // findAll returns all entries for a table when used with no options
     console.log("login called " + req.body + " " + req.body.email )
@@ -107,7 +107,7 @@ module.exports = function(app) {
       res.locals.user = user;
       //req.session.user = user;
       // We have access to the new user as an argument inside of the callback function
-      res.json(user);
+      res.json({user:user, valid:true});
     });
   });
 
