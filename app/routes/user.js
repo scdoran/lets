@@ -14,12 +14,11 @@ module.exports = function(app) {
     // findAll returns all entries for a table when used with no options
     db.User.findAll({
       // where: {
-      //   UserId: req.body.user
-        // or availabitity: true?
+      //   availability: true
       // }
     }).then(function(user) {
       // We have access to the user as an argument inside of the callback function
-      res.json(user);
+      res.json("test", user);
     });
   });
 
@@ -74,15 +73,22 @@ module.exports = function(app) {
 
   // PUT route for updating user information. We can get the updated user data from req.body
   app.put("/view", function(req, res) {
+    var dataToSave = req.body;
+    dataToSave.id = dataToSave.id || 0;
+
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    console.log("updating to " + req.body.availability);
+    console.log("updating to " + dataToSave.availability);
+    console.log("longitude: " + dataToSave.longitude);
+    console.log("latitude: " + dataToSave.latitude);
 
     db.User.update({
-      availability: req.body.availability
+      availability: dataToSave.availability,
+      longitude: dataToSave.longitude,
+      latitude: dataToSave.latitude
     }, {
       where: {
-        id: req.params.id
+        id: dataToSave.id
       }
     }).then(function(user) {
       res.json(user);

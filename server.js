@@ -5,8 +5,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
 var fs = require("fs");
-var handleBars = require("express-handlebars");
-
+var handlebars = require("express-handlebars");
 var fileUploader = require("express-fileupload");
 
 // Sets up the Express App
@@ -23,6 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static(path.join(__dirname, '/app/public')));
+app.engine("handlebars", handlebars({defaultLayout: "main"}));
+app.set("view engine", "handlebars");
 
 
 // Static directory

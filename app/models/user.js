@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     availability: {type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true},
     latitude: DataTypes.FLOAT,
     longitude: DataTypes.FLOAT,
-    photo: DataTypes.STRING,
+    photo: {type: DataTypes.STRING, defaultValue: "https://cdn3.iconfinder.com/data/icons/essentials-vol-1-1/512/User-2-512.png"},
     salt: DataTypes.STRING,
     encryptedpw:DataTypes.STRING
   },

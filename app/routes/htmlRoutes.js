@@ -5,6 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+var db = require("../models");
 
 // Routes
 // =============================================================
@@ -29,7 +30,24 @@ module.exports = function(app) {
 
     // Route to the view page
   app.get("/view", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/view.html"));
+    db.User.findAll({
+      where: {
+        availability: true
+      }
+    }).then(function(data){
+      res.render("view", {user: data});
+    });
+    
+    // function userActivity(filter){
+    //   db.User.findAll({
+    //   where: {
+    //     availability: true
+    //   }
+    // }).then(function(data){
+    //   res.render("test", {user: data});
+    // });
+    // };
+
   });
 
   // Route loads signup.html

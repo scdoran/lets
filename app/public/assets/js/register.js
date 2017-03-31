@@ -2,6 +2,16 @@
 // Reset fields
 $(".clear").on("click", clear);
 
+var foundLatitude;
+var foundLongitude;
+
+var userLocation = $.getJSON("http://freegeoip.net/json/", function(data) {
+  foundLatitude = data.latitude;
+  foundLongitude = data.longitude;
+  console.log("Latitude: " + foundLatitude);
+  console.log("Longitude: " + foundLongitude);
+});
+
 function clear() {
     $("#email").val("");
     $("#password").val("");
@@ -14,8 +24,6 @@ function clear() {
     $("#facebook").val("");
     $("#instagram").val("");
 };
-
-
 
 // Validate and submit
 $('#myForm').validator().on('submit', function (e) {
@@ -42,7 +50,9 @@ $('#myForm').validator().on('submit', function (e) {
           phone: $("#phone").val().trim(),
           city: $("#city").val().trim(),
           state: $("#state").val().trim(),
-          interests: allInterests
+          status: "Hey, I'm available to hang out.",
+          latitude: foundLatitude,
+          longitude: foundLongitude
         };
         console.log(newUser)
 
@@ -67,10 +77,9 @@ $('#myForm').validator().on('submit', function (e) {
         $.post("/api/usersocial", {UserId: user.id, links: newSocial}, function(dbSocial){
           console.log(dbSocial);
         });
-        $.post("/api/useractivities", {UserId: user.id, ActivityIds: allInterests}, function(dbSocial){
+        $.post("/api/useractivities", {UserId: user.id, ActivityId: allInterests}, function(dbSocial){
           console.log(dbSocial);
         });
-        
       }).then(function() {
         console.log("done");
       });
