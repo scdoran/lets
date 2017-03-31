@@ -1,11 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "lets",
-    "host": "localhost",
-    "dialect": "mysql"
-  },
+    "username": "jcgxg8j5tx1i18zl",
+    "password": "y0hpxgc4telv9687",
+    "database": "database_production",
+    "host": "o3iyl77734b9n3tg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"  },
   "test": {
     "username": "root",
     "password": "root",
