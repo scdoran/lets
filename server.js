@@ -7,6 +7,7 @@ var path = require("path");
 var fs = require("fs");
 var handlebars = require("express-handlebars");
 var fileUploader = require("express-fileupload");
+var session = require("client-sessions");
 
 // Sets up the Express App
 // =============================================================
@@ -24,7 +25,15 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static(path.join(__dirname, '/app/public')));
 app.engine("handlebars", handlebars({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
-
+app.use(session({
+  cookieName: 'session',
+  secret: 'eg[isfd-8yF9-7w2315df{}+Ijsli;;to8',
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
+  httpOnly: true,
+  secure: true,
+  ephemeral: true
+}));
 
 // Static directory
 app.use(express.static("./public"));

@@ -7,6 +7,15 @@
 var path = require("path");
 var db = require("../models");
 
+function requireLogin (req, res, next) {
+  if (!req.session.user) {
+    res.redirect('/');
+  } else {
+    console.log(req.session.user.email);
+    next();
+  }
+};
+
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -24,12 +33,12 @@ module.exports = function(app) {
   });
 
   // Route to the profile page
-  app.get("/profile", function(req, res) {
+  app.get("/profile", requireLogin, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/profile.html"));
   });
 
     // Route to the view page
-  app.get("/view", function(req, res) {
+  app.get("/view", requireLogin, function(req, res) {
     db.User.findAll({
       where: {
         availability: true
@@ -49,6 +58,18 @@ module.exports = function(app) {
     // };
 
   });
+
+    // Route to the profile page
+  app.get("/proflie/:id", function(req, res) {
+    db.User.findAll({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(data){
+      res.render("profile", {user: data});
+    });
+  });
+
 
   // Route loads signup.html
   app.get("/signup", function(req, res) {

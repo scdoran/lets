@@ -201,6 +201,14 @@ input:checked + .slider:before {
             background-color: white;
 }
 
+.registerBtn {
+       color: #333;
+}
+.registerBtn:hover {
+       color: white;
+       text-decoration: none;
+}
+
 /****************SIGNUP PAGE CSS****************/
 label {
           color: white;
