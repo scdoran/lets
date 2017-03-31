@@ -2,6 +2,16 @@
 // Reset fields
 $(".clear").on("click", clear);
 
+var foundLatitude;
+var foundLongitude;
+
+var userLocation = $.getJSON("http://freegeoip.net/json/", function(data) {
+  foundLatitude = data.latitude;
+  foundLongitude = data.longitude;
+  console.log("Latitude: " + foundLatitude);
+  console.log("Longitude: " + foundLongitude);
+});
+
 function clear() {
     $("#email").val("");
     $("#password").val("");
@@ -34,31 +44,49 @@ $('#myForm').validator().on('submit', function (e) {
           });
 
        var newUser = {
-          name: "Bob",
+          name: $("#name").val().trim(),
           email: $("#email").val().trim(),
           password: $("#password").val().trim(),
           phone: $("#phone").val().trim(),
           city: $("#city").val().trim(),
           state: $("#state").val().trim(),
-          interests: allInterests
-
+          status: "Hey, I'm available to hang out.",
+          latitude: foundLatitude,
+          longitude: foundLongitude
         };
         console.log(newUser)
 
         var newSocial = $("#facebook").val().trim() + "," + $("#instagram").val().trim();
 
-      $.post("/api/user", newUser, function(user){
+      $.post("/api/user", newUser, function(data){
+        if (data.valid) {
+        var user = data.user;
         console.log("Posted user!");
         console.log(user.id);
+        var fd = new FormData(document.getElementById("myForm"));
+           //fd.append("label", "WEBUPLOAD");
+        fd.append("UserId", user.id);
+        console.log(fd);
+           $.ajax({
+             url: "/newUpload/image",
+             type: "POST",
+             data: fd,
+             processData: false,  // tell jQuery not to process the data
+             contentType: false   // tell jQuery not to set contentType
+           }).done(function( data ) {
+               console.log( data );
+           });
         $.post("/api/usersocial", {UserId: user.id, links: newSocial}, function(dbSocial){
           console.log(dbSocial);
         });
-        $.post("/api/useractivities", {UserId: user.id, ActivityIds: allInterests}, function(dbSocial){
+        $.post("/api/useractivities", {UserId: user.id, ActivityId: allInterests}, function(dbSocial){
           console.log(dbSocial);
         });
-        $.post("/newUpload/image", user.id, function(dbPhoto){
-          console.log(dbPhoto);
-        });
+        
+          window.location = "/view";
+        };
+      }).then(function() {
+        console.log("done");
       });
 
       };

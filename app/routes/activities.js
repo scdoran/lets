@@ -44,7 +44,7 @@ module.exports = function(app) {
     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property.
-    var activityIds = req.body.ActivityIds;
+    var activityIds = req.body.ActivityId;
 
     db.User.findById(req.body.UserId).then(user=>{
       for (var i = 0; i < activityIds.length; i++) {

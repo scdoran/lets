@@ -4,7 +4,7 @@
  }
  
  body {
-            background-image: url("images/crowd.jpg");
+            background-image: url("../../assets/images/crowd.jpg");
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -183,6 +183,11 @@ input:checked + .slider:before {
         transform: translateX(26px);
 }
 
+#updateLocation {
+       margin-left: 150px;
+       margin-bottom: 30px;
+}
+
 /* Rounded sliders */
 .slider.round {
         border-radius: 34px;
@@ -194,6 +199,14 @@ input:checked + .slider:before {
 
 #footer {
             background-color: white;
+}
+
+.registerBtn {
+       color: #333;
+}
+.registerBtn:hover {
+       color: white;
+       text-decoration: none;
 }
 
 /****************SIGNUP PAGE CSS****************/

@@ -4,11 +4,17 @@
   "description": "Let's node modules.",
   "main": "index.js",
   "dependencies": {
+    "aws-sdk": "^2.36.0",
     "body-parser": "^1.17.1",
     "client-sessions": "^0.7.0",
+    "crypto": "0.0.3",
     "express": "^4.15.2",
+    "express-fileupload": "^0.1.2",
+    "express-handlebars": "^3.0.0",
     "mysql": "^2.13.0",
-    "sequelize": "^3.30.2"
+    "path": "^0.12.7",
+    "sequelize": "^3.30.2",
+    "sessions": "0.0.2-7"
   },
   "devDependencies": {},
   "scripts": {

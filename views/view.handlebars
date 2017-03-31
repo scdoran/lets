@@ -8,7 +8,7 @@
 
         <!-- Bootstrap CSS -->
         <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
+        <link href="/assets/css/style.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,7 +21,7 @@
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="/"><img class="logo" src="assets/images/new-lets-logo.png" alt="lets social app">
+            <a href="/"><img class="logo" src="/assets/images/new-lets-logo.png" alt="lets social app">
             </a>
            
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -35,8 +35,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/">Find</a></li>
+                <li><a href="/view">Home</a></li>
+                <li><a href="/view">Find</a></li>
                 <li><a href="/profile">Profile</a></li>
+                <li><a href="#">Friends</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
         </div>
@@ -82,7 +84,7 @@
     <div class="row friendResults">
         <div class="col-md-6 col-xs-12">
             <div class="item">
-                <img class ="avatar" src="assets/images/avatar.jpeg">
+                <img class ="avatar" src="/assets/images/avatar.jpeg">
                 <h3>Nathan</h3>
                     <p class="status">Looking to play basketball.</p>
                     <button type="button" class="btn btn-primary view">View Profile</button>
@@ -93,61 +95,24 @@
                     </div>
             </div>
         </div>
+        {{#each user}}
         <div class="col-md-6 col-xs-12">
             <div class="item">
-                <img class="avatar" src="http://placehold.it/100x100">
-                <h3>Connor</h3>
-                    <p class="status">Looking to play basketball.</p>
-                    <button type="button" class="btn btn-primary view">View Profile</button>
-                    <div class="socialLinks">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span>
-                    </div>
+                <img class ="avatar" src="{{this.photo}}">
+                <h3>{{this.name}}</h3>
+                <p class="status">{{this.status}}</p>
+                <button type="button" class="btn btn-primary view">View Profile</button>
+                <div class="socialLinks">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                    <a href="{{this.phone}}"><span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span></a>
+                </div>
             </div>
         </div>
-         <div class="col-md-6 col-xs-12">
-            <div class="item">
-                <img class="avatar" src="http://placehold.it/100x100">
-                <h3>Patrick</h3>
-                    <p class="status">Looking to play basketball.</p>
-                    <button type="button" class="btn btn-primary view">View Profile</button>
-                    <div class="socialLinks">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star favorited" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span>
-                    </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-            <div class="item">
-                <img class = "avatar" src="http://placehold.it/100x100">
-                <h3>Sarah</h3>
-                    <p class="status">Looking to play basketball.</p>
-                    <button type="button" class="btn btn-primary view">View Profile</button>
-                    <div class="socialLinks">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span>
-                    </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-            <div class="item">
-                <img class = "avatar" src="http://placehold.it/100x100">
-                <h3>Rayal</h3>
-                    <p class="status">Looking to play basketball.</p>
-                    <button type="button" class="btn btn-primary view">View Profile</button>
-                    <div class="socialLinks">
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-star favorited" aria-hidden="true"></span>
-                            <span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span>
-                    </div>
-            </div>
-        </div>
+        {{/each}}
+        
     </div>
-
-    <a href="#top"><button type="button" class="btn btn-default">Back to Top</button></a>
+        <a href="#top"><button type="button" class="btn btn-default">Back to Top</button></a>
 
 </div>
 <footer id = "footer" class="footer navbar-fixed-bottom">
@@ -158,13 +123,14 @@
                 <input id="availableCheckbox" type="checkbox" checked>
                 <div class="slider round"></div>
             </label>
+
+            <button type="button" class="btn btn-md btn-primary" id="updateLocation">Update Location</button>
       </div>
 </footer>
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>       
         <!-- Bootstrap JavaScript -->
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="assets/js/view.js"></script>
-
+        <script src="/assets/js/view.js"></script>
 </body>
 </html>
