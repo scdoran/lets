@@ -11,9 +11,9 @@ var db = require("../models");
 module.exports = function(app) {
 
 	// GET route for getting all of the friends
-  app.get("/api/friends/:UserId", function(req, res) {
+  app.get("/api/friends", function(req, res) {
     // findAll returns all entries for a table when used with no options
-    db.User.findById(req.params.UserId).then(user=>{
+    db.User.findById(req.session.user.id).then(user=>{
        
         user.getFriend().then(function(user) {
           // We have access to the new user as an argument inside of the callback function
@@ -24,11 +24,11 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new friends
-  app.post("/api/friends", function(req, res) {
+  app.post("/api/friends/:FriendId", function(req, res) {
     
-    var friendIds = req.body.FriendIds;
+    var friendIds = req.params.FriendId;
     
-    db.User.findById(req.body.UserId).then(user=>{
+    db.User.findById(req.session.user.id).then(user=>{
       for (var i = 0; i < friendIds.length; i++) {
        var x = friendIds[i];
        // Expecting an array of FriendIds..[1,2].
@@ -41,10 +41,10 @@ module.exports = function(app) {
   });
 
   // DELETE route for deleting users from the friends table. We can get the id of the user to be deleted.
-  app.delete("/api/friends/:UserId/:FriendId", function(req, res) {
+  app.delete("/api/friends/:FriendId", function(req, res) {
     // We just have to specify which user we want to destroy with "where" from the joined 
     // UserFriends table (created dynamically in the user.js file).
-    db.User.findById(req.params.UserId).then(user=>{
+    db.User.findById(req.session.user.id).then(user=>{
        
         user.removeFriend(req.params.FriendId).then(function(user) {
           // We have access to the new user as an argument inside of the callback function

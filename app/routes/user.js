@@ -96,6 +96,8 @@ module.exports = function(app) {
       latitude: req.body.latitude,
       longitude: req.body.longitude,
       status: req.body.status,
+      facebook: req.body.facebook,
+      instagram: req.body.instagram,
       salt: newSalt,
       encryptedpw: newUserEncryption 
     }).then(function(user) {
@@ -112,46 +114,25 @@ module.exports = function(app) {
   });
 
   // PUT route for updating user information. We can get the updated user data from req.body
-  app.put("/api/:UserId", function(req, res) {
-    // Update takes in an object describing the properties we want to update, and
-    // we use where to describe which objects we want to update
-    db.User.update({
-      name: req.body.name,
-      email: req.body.email,
-      phone: req.body.phone,
-      city: req.body.city,
-      state: req.body.state,
-      zip: req.body.zip,
-      status: req.body.status,
-      availability: req.body.availability,
-      latitude: req.body.latitude,
-      longitude: req.body.longitude
-      // photo: 
-    }, {
-      where: {
-        id: req.params.id
-      }
-    }).then(function(user) {
-      res.json(user);
-    });
-  });
-
-  // // PUT route for updating user information. We can get the updated user data from req.body
-  // app.put("/view", function(req, res) {
+  // app.put("/api/:UserId", function(req, res) {
   //   // Update takes in an object describing the properties we want to update, and
   //   // we use where to describe which objects we want to update
-  //   console.log("updating to " + req.body.availability);
-  //   console.log("longitude: " + req.body.longitude);
-  //   console.log("latitude: " + req.body.longitude);
-
   //   db.User.update({
+  //     name: req.body.name,
+  //     email: req.body.email,
+  //     phone: req.body.phone,
+  //     city: req.body.city,
+  //     state: req.body.state,
+  //     zip: req.body.zip,
+  //     status: req.body.status,
   //     availability: req.body.availability,
-  //     longitude: req.body.longitude,
-  //     latitude: req.body.latitude
-  //   // }, {
-  //   //   where: {
-  //   //     id: req.params.id
-  //   //   }
+  //     latitude: req.body.latitude,
+  //     longitude: req.body.longitude
+  //     // photo: 
+  //   }, {
+  //     where: {
+  //       id: req.params.id
+  //     }
   //   }).then(function(user) {
   //     res.json(user);
   //   });
@@ -159,24 +140,40 @@ module.exports = function(app) {
 
   // PUT route for updating user information. We can get the updated user data from req.body
   app.put("/view", function(req, res) {
-    var dataToSave = req.body;
-    dataToSave.id = dataToSave.id || 0;
 
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
-    console.log("updating to " + dataToSave.availability);
-    console.log("longitude: " + dataToSave.longitude);
-    console.log("latitude: " + dataToSave.latitude);
+    console.log("updating to " + req.body.availability);
 
     db.User.update({
-      availability: dataToSave.availability,
-      longitude: dataToSave.longitude,
-      latitude: dataToSave.latitude
+      availability: req.body.availability,
     }, {
       where: {
-        id: dataToSave.id
+        id: req.session.user.id
       }
     }).then(function(user) {
+      req.session.user = user;
+      res.json(user);
+    });
+  });
+
+  // PUT route for updating user information. We can get the updated user data from req.body
+  app.put("/view/location", function(req, res) {
+
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    console.log("longitude: " + req.body.longitude);
+    console.log("latitude: " + req.body.latitude);
+
+    db.User.update({
+      longitude: req.body.longitude,
+      latitude: req.body.latitude
+    }, {
+      where: {
+        id: req.session.user.id
+      }
+    }).then(function(user) {
+      req.session.user = user;
       res.json(user);
     });
   });

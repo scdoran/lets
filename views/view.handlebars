@@ -54,13 +54,13 @@
                 <ul class="dropdown-menu">
                     <li><a id="friends" href="#">Your Friends</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a class="activity" value="1" href="">Hiking</a></li>
-                    <li><a class="activity" value="2" href="">Food</a></li>
-                    <li><a class="activity" value="3" href="#">Movies</a></li>
-                    <li><a class="activity" value="4" href="#">Gaming</a></li>
-                    <li><a class="activity" value="5" href="#">Dating</a></li>
-                    <li><a class="activity" value="6" href="#">Nightlife</a></li>
-                    <li><a class="activity" value="7" href="#">Sports</a></li>
+                    <li><a href="/activity/1">Hiking</a></li>
+                    <li><a href="/activity/2">Food</a></li>
+                    <li><a href="/activity/3">Movies</a></li>
+                    <li><a href="/activity/4">Gaming</a></li>
+                    <li><a href="/activity/5">Dating</a></li>
+                    <li><a href="/activity/6">Nightlife</a></li>
+                    <li><a href="/activity/7">Sports</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a id="all" href="#">Show All</a></li>
                 </ul>
@@ -100,11 +100,11 @@
                 <img class ="avatar" src="{{this.photo}}">
                 <h3>{{this.name}}</h3>
                 <p class="status">{{this.status}}</p>
-                <button type="button" class="btn btn-primary view">View Profile</button>
+                <a href="../profile/{{this.id}}"><button type="button" class="btn btn-primary view">View Profile</button></a>
                 <div class="socialLinks">
                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                    <a href="{{this.phone}}"><span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span></a>
+                    <span class="glyphicon glyphicon-star" aria-hidden="true" data-id="{{this.id}}"></span>
+                    <a href="tel:{{this.phone}}"><span class="glyphicon glyphicon-phone glyphicon-align-left" aria-hidden="true"></span></a>
                 </div>
             </div>
         </div>
@@ -119,7 +119,7 @@
           <h2 id="available">Available:</h2>
             <!-- Rounded switch -->
             <label class="switch">
-                <input id="availableCheckbox" type="checkbox" checked>
+                <input id="availableCheckbox" type="checkbox" checked="{{status}}">
                 <div class="slider round"></div>
             </label>
 

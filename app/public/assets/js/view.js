@@ -38,7 +38,7 @@ function updateAvailability() {
             $.ajax({
                url: '/view',
                type: 'PUT',
-               data: availability,
+               data: {availability: availability},
                success: function(status) {
                  console.log("No longer available");
                }
@@ -55,18 +55,20 @@ function updateFriends() {
     if($(this).hasClass("favorited")) {
             var returnVal = console.log("Friend removed");
             $(this).removeClass("favorited", returnVal);
+            var friend = $(this).data("id");
            
-            $.delete("/api/friends/:UserId/:FriendId", {userId: user.id, friendIds: friendId}, function(friendRemoved){
-                console.log("Friend removed!" + friendRemoved);
-            });
+            // $.delete("/api/friends/:FriendId", {FriendId: friend}, function(friendRemoved){
+            //     console.log("Friend removed!" + friendRemoved);
+            // });
         }
         else {
             var returnVal = console.log("Friend added");
             $(this).addClass("favorited", returnVal);
+            var friend = $(this).data("id");
 
-            $.post("/api/friends", friendIds, function(friendAdded){
-                console.log("Friend added!" + friendAdded);
-            });
+            // $.post("/api/friends/:FriendId", {FriendId: friend}, function(friendAdded){
+            //     console.log("Friend added!" + friendAdded);
+            // });
         }   
 };
 

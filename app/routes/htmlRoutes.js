@@ -54,47 +54,35 @@ module.exports = function(app) {
   });
 
   // Route to the profile page
-  app.get("/profile", requireLogin, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/profile.html"));
-  });
+  // app.get("/profile", requireLogin, function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/profile.html"));
+  // });
 
     // Route to the view page
   app.get("/view", requireLogin, function(req, res) {
     
-    // function allUsers(){ 
       db.User.findAll({
         where: {
           availability: true
         }
       }).then(function(data){
-        res.render("view", {user: data});
+        res.render("view", {user: data, status: req.session.user.availability});
       });
-    // }
-    
-    // function userActivity(filter){
-    //   db.User.getActivity({
-    //     where: {
-    //       ActivityId: filter
-    //     }
-    //   }).then(function(data){
-    //   res.render("view", {user: data});
-    //   });
-    // }
-
-    // function userDistance(filter){
-    //   db.User.findAll({
-    //     where: {
-
-    //     }
-    //   }).then(function(data){
-    //   res.render("view", {user: data});
-    //   });
-    // };
 
   });
 
+  app.get("/profile", requireLogin, function(req,res){
+    db.User.findAll({
+      where: {
+        id: req.session.user.id
+      }
+    }).then(function(data){
+      res.render("profile", {user: data});
+    });
+  });
+
     // Route to the profile page
-  app.get("/proflie/:id", function(req, res) {
+  app.get("/profile/:id", function(req, res) {
     db.User.findAll({
       where: {
         id: req.params.id
@@ -102,7 +90,24 @@ module.exports = function(app) {
     }).then(function(data){
       res.render("profile", {user: data});
     });
+
   });
+
+  // FOR INTERESTS //
+   // app.get("/activity/:interest", function(req, res) {
+   //   db.User.findAll({
+   //    include: [{
+   //      model: Activity,
+   //      through: {
+   //        where: {
+   //          interest: req.params.interest
+   //        }
+   //      }
+   //    }]
+   //  }).then(data=>{
+   //        res.render("view", {user: data});
+   //      });
+   //  });   
 
   // Route loads signup.html
   app.get("/signup", function(req, res) {

@@ -51,20 +51,20 @@ $('#myForm').validator().on('submit', function (e) {
           city: $("#city").val().trim(),
           state: $("#state").val().trim(),
           status: "Hey, I'm available to hang out.",
+          facebook: $("#facebook").val().trim(),
+          instagram: $("#instagram").val().trim(),
           latitude: foundLatitude,
           longitude: foundLongitude
         }
         console.log(newUser);
 
-        var newSocial = $("#facebook").val().trim() + "," + $("#instagram").val().trim();
-
       $.post("/api/user", newUser, function(data){
         if(data.valid){
           console.log("Posted user!");
-          console.log(user.id);
+          // console.log(data.user.id);
           var fd = new FormData(document.getElementById("myForm"));
              //fd.append("label", "WEBUPLOAD");
-          fd.append("UserId", user.id);
+          fd.append("UserId", data.user.id);
           console.log(fd);
              $.ajax({
                url: "/newUpload/image",
@@ -76,9 +76,6 @@ $('#myForm').validator().on('submit', function (e) {
                  console.log( data );
              });
 
-          $.post("/api/usersocial", {UserId: user.id, links: newSocial}, function(dbSocial){
-            console.log(dbSocial);
-          });
           $.post("/api/useractivities", {UserId: user.id, ActivityId: allInterests}, function(dbSocial){
             console.log(dbSocial);
           });

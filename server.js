@@ -45,7 +45,7 @@ require("./app/routes/htmlRoutes.js")(app);
 require("./app/routes/activities.js")(app);
 require("./app/routes/friends.js")(app);
 require("./app/routes/user.js")(app);
-require("./app/routes/social.js")(app);
+// require("./app/routes/social.js")(app);
 require("./app/routes/s3.js")(app);
 
 
