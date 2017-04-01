@@ -55,20 +55,25 @@ function updateFriends() {
     if($(this).hasClass("favorited")) {
             var returnVal = console.log("Friend removed");
             $(this).removeClass("favorited", returnVal);
-            var friend = $(this).data("id");
-           
-            // $.delete("/api/friends/:FriendId", {FriendId: friend}, function(friendRemoved){
-            //     console.log("Friend removed!" + friendRemoved);
-            // });
+            var friend = $(this).attr("data-id");
+
+            $.ajax({
+               url: '/api/friends/' + friend,
+               type: 'DELETE',
+               success: function(friend) {
+                 console.log("You're not longer friends.");
+                 console.log(friend);
+               }
+            });
         }
         else {
             var returnVal = console.log("Friend added");
             $(this).addClass("favorited", returnVal);
-            var friend = $(this).data("id");
-
-            // $.post("/api/friends/:FriendId", {FriendId: friend}, function(friendAdded){
-            //     console.log("Friend added!" + friendAdded);
-            // });
+            var friend = $(this).attr("data-id");
+           console.log(friend);
+            $.post("/api/friends/" + friend, function(friendAdded){
+                console.log("Friend added!" + friendAdded);
+            });
         }   
 };
 

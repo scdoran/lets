@@ -29,14 +29,14 @@ module.exports = function(app) {
     var friendIds = req.params.FriendId;
     
     db.User.findById(req.session.user.id).then(user=>{
-      for (var i = 0; i < friendIds.length; i++) {
-       var x = friendIds[i];
+      // for (var i = 0; i < friendIds.length; i++) {
+       var x = friendIds;
        // Expecting an array of FriendIds..[1,2].
         user.addFriend(x).then(function(user) {
           // We have access to the new user as an argument inside of the callback function
           res.json(user);
         });
-      }
+      // }
     });
   });
 
