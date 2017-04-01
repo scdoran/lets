@@ -1,23 +1,23 @@
 {
-    "development": {
-        "username": "root",
-        "password": "pass",
-        "database": "burgers_database",
-        "host": "localhost",
-        "dialect": "mysql"
-    },
-    "test": {
-        "username": "root",
-        "password": null,
-        "database": "database_test",
-        "host": "127.0.0.1",
-        "dialect": "mysql"
-    },
-    "production": {
-        "username": "cqi1ve9enm8n7rej",
-        "password": "h1150yjngiiwp2hu",
-        "database": "ekyyoxi4wa4tuexo",
-        "host": "ryvdxs57afyjk41z.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-        "dialect": "mysql"
-    }
+  "development": {
+    "username": "yrrlb4yw6m4eg7lz",
+    "password": "z9fzf7q7ja37vzbq",
+    "database": "fvujbtwk8p9san45",
+    "host": "o3iyl77734b9n3tg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"  
+  },
+  "test": {
+    "username": "yrrlb4yw6m4eg7lz",
+    "password": "z9fzf7q7ja37vzbq",
+    "database": "fvujbtwk8p9san45",
+    "host": "o3iyl77734b9n3tg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "yrrlb4yw6m4eg7lz",
+    "password": "z9fzf7q7ja37vzbq",
+    "database": "fvujbtwk8p9san45",
+    "host": "o3iyl77734b9n3tg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
 }
