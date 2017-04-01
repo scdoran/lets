@@ -1,11 +1,11 @@
 {
   "development": {
-    "use_env_variable": "mysql://yrrlb4yw6m4eg7lz:z9fzf7q7ja37vzbq@o3iyl77734b9n3tg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/fvujbtwk8p9san45",    
+    "use_env_variable": "JAWSDB_URL",    
   },
   "test": {
-    "use_env_variable": "mysql://yrrlb4yw6m4eg7lz:z9fzf7q7ja37vzbq@o3iyl77734b9n3tg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/fvujbtwk8p9san45",
+    "use_env_variable": "JAWSDB_URL",
   },
   "production": {
-    "use_env_variable": "mysql://yrrlb4yw6m4eg7lz:z9fzf7q7ja37vzbq@o3iyl77734b9n3tg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/fvujbtwk8p9san45",
+    "use_env_variable": "JAWSDB_URL",
   }
 }
