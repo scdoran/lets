@@ -9,12 +9,15 @@ var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
 
-
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
-} else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+// if (process.env.JAWSDB_URL) {
+//   var sequelize = new Sequelize(process.env.JAWSDB_URL);
+// } else 
+// if (config.use_env_variable) {
+//   var sequelize = new Sequelize(process.env[config.use_env_variable]);
+// } else {
+//   var sequelize = new Sequelize(config.database, config.username, config.password, config);
+// }
+var sequelize = new Sequelize("mysql://yrrlb4yw6m4eg7lz:z9fzf7q7ja37vzbq@o3iyl77734b9n3tg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/fvujbtwk8p9san45");
 
 fs
   .readdirSync(__dirname)

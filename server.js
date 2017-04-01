@@ -1,6 +1,9 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================
+console.log("server js called properly");
+
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
@@ -48,7 +51,7 @@ require("./app/routes/user.js")(app);
 require("./app/routes/social.js")(app);
 require("./app/routes/s3.js")(app);
 
-
+console.log("all models and dependencies loaded, attempting db sync...");
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
