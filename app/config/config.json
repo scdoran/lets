@@ -4,6 +4,7 @@
     "password": "z9fzf7q7ja37vzbq",
     "database": "fvujbtwk8p9san45",
     "host": "o3iyl77734b9n3tg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "port": "8889",
     "dialect": "mysql"  
   },
   "test": {
@@ -11,6 +12,7 @@
     "password": "z9fzf7q7ja37vzbq",
     "database": "fvujbtwk8p9san45",
     "host": "o3iyl77734b9n3tg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "port": "8889",
     "dialect": "mysql"
   },
   "production": {
@@ -18,6 +20,7 @@
     "password": "z9fzf7q7ja37vzbq",
     "database": "fvujbtwk8p9san45",
     "host": "o3iyl77734b9n3tg.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "port": "8889",
     "dialect": "mysql"
   }
 }
