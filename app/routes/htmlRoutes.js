@@ -94,20 +94,21 @@ module.exports = function(app) {
   });
 
   // FOR INTERESTS //
-   // app.get("/activity/:interest", function(req, res) {
-   //   db.User.findAll({
-   //    include: [{
-   //      model: Activity,
-   //      through: {
-   //        where: {
-   //          interest: req.params.interest
-   //        }
-   //      }
-   //    }]
-   //  }).then(data=>{
-   //        res.render("view", {user: data});
-   //      });
-   //  });   
+  //  app.get("/activity/:interest", function(req, res) {
+      
+  //   var interest = req.params.interest;
+
+  //    db.User.findAll({
+  //       include: [{
+  //         model: db.Activity,
+  //         through: {
+  //           where: {ActivityId: interest}
+  //         }
+  //       }]
+  //     }).then(function(users){
+  //       res.render("view", {user: users});
+  //     });
+  // });   
 
   // Route loads signup.html
   app.get("/signup", function(req, res) {

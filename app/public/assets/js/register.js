@@ -76,7 +76,7 @@ $('#myForm').validator().on('submit', function (e) {
                  console.log( data );
              });
 
-          $.post("/api/useractivities", {UserId: user.id, ActivityId: allInterests}, function(dbSocial){
+          $.post("/api/useractivities", {ActivityId: allInterests}, function(dbSocial){
             console.log(dbSocial);
           });
 
